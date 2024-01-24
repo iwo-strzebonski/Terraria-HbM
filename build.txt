@@ -1,0 +1,4 @@
+displayName = Terraria HbM
+author = Octoturge
+version = 0.1
+dllReferences = YamlDotNet

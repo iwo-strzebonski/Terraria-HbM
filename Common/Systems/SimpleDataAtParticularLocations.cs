@@ -82,48 +82,5 @@ namespace TerrariaHbM.Common.Systems
 
 			myMap = builder.Build();
 		}
-
-		// We call our custom method after testing that our map isn't empty - this ensures safe-loading on previous generated worlds!
-		public override void PreUpdateWorld()
-		{
-			if (myMap.Length == 0)
-			{
-				return;
-			}
-			foreach (var player in Main.player)
-			{
-				if (player.active)
-				{
-					UpdateFromNearestInMap(player);
-				}
-			}
-		}
-
-		// We use the column at world center to paint nearby tiles based on the player's proximity to the nearest entry in the map.
-		// In this case, the nearest entry should correspond to the player's depth.
-		public void UpdateFromNearestInMap(Player player)
-		{
-			// Get player position in tile coordinates
-			Point z = player.position.ToTileCoordinates();
-			// Search for an entry within 32 tiles of our player
-			if (PosData.NearbySearchOrderedPosMap(myMap, z, 32, out var entry))
-			{
-				// If found, we grab the data from the corresponding output index
-				var data = entry.value;
-
-				// We then proceed to paint a 5x2 area around the player position with our locational custom values.
-				for (int i = -2; i < 3; i++)
-				{
-					for (int j = 0; j < 2; j++)
-					{
-						Tile tile = Main.tile[z.X + i, z.Y + j];
-						if (tile.HasTile)
-						{
-							tile.TileColor = data;
-						}
-					}
-				}
-			}
-		}
 	}
 }

@@ -25,7 +25,7 @@ namespace TerrariaHbM.Content.NPCs
 	[AutoloadHead]
 	public class SuspiciousYellowTriangle : ModNPC
 	{
-		public const string ShopName = "Make a Deal";
+		public const string ShopName = "Bill Cipher's Dubious Trades";
 		public int NumberOfTimesTalkedTo = 0;
 
 		private static int ShimmerHeadIndex;
@@ -103,7 +103,9 @@ namespace TerrariaHbM.Content.NPCs
 		public override void SetDefaults()
 		{
 			NPC.townNPC = true; // Sets NPC to be a Town NPC
-													// NPC.friendly = false; // This is Bill Cipher, he is not friendly.
+
+			// NPC.friendly = false; // This is Bill Cipher, he is not friendly.
+
 			NPC.friendly = true; // Just kidding, he is friendly. He is a nice guy. For now.
 			NPC.width = 18;
 			NPC.height = 40;
@@ -111,12 +113,16 @@ namespace TerrariaHbM.Content.NPCs
 			NPC.damage = 1000;
 			NPC.defense = 500;
 			NPC.lifeMax = 1000000;
+			// NPC.defense = 5;
+			// NPC.lifeMax = 10;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.knockBackResist = 1f;
+			NPC.knockBackResist = 4f;
+			// NPC.homeless = true; // This NPC does not require a house
 
-			// AnimationType = NPCID.Guide; // This NPC will copy the Guide's animation
-			AnimationType = NPCID.ChaosElemental; // This NPC will copy the Chaos Elemental's animation
+			AnimationType = NPCID.Guide; // This NPC will copy the Guide's animation
+
+			// AnimationType = NPCID.ChaosElemental; // This NPC will copy the Chaos Elemental's animation
 		}
 
 		public override bool CanTownNPCSpawn(int numTownNPCs)
@@ -175,6 +181,13 @@ namespace TerrariaHbM.Content.NPCs
 			return chosenChat;
 		}
 
+		public override void OnKill()
+		{
+			Main.NewText("Bill Cipher: [c/FFFF00:I. Don't. Like. People. Who. Break. Deals.]");
+
+			base.OnKill();
+		}
+
 		private void AddBaseDialogues(ref WeightedRandom<string> chat)
 		{
 			// These are things that the NPC has a chance of telling you when you talk to it.
@@ -205,7 +218,7 @@ namespace TerrariaHbM.Content.NPCs
 		public override void SetChatButtons(ref string button, ref string button2)
 		{ // What the chat buttons are when you open up the chat UI
 			button = Language.GetTextValue("LegacyInterface.28");
-			button2 = "Awesomeify";
+			button2 = "Make a Deal";
 			if (Main.LocalPlayer.HasItem(ItemID.HiveBackpack))
 			{
 				button = "Upgrade " + Lang.GetItemNameValue(ItemID.HiveBackpack);

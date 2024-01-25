@@ -16,13 +16,19 @@ namespace TerrariaHbM.Content.Projectiles
     public override void SetDefaults()
     {
       // Projectile.CloneDefaults(ProjectileID.PhantasmalDeathray);
-      Projectile.CloneDefaults(ProjectileID.DeathLaser);
+      Projectile.CloneDefaults(ProjectileID.ShadowBeamFriendly);
+
+      Main.NewText(Projectile);
 
       // AIType = ProjectileID.PhantasmalDeathray;
-      AIType = ProjectileID.DeathLaser;
+      AIType = ProjectileID.ShadowBeamFriendly;
       Projectile.friendly = true;
       Projectile.hostile = false;
       Projectile.DamageType = DamageClass.Magic;
+
+      Projectile.penetrate = -1;
+
+      // Projectile.aiStyle = 84;
     }
 
     public override bool OnTileCollide(Vector2 oldVelocity)

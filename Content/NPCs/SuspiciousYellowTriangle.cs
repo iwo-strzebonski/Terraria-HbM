@@ -106,18 +106,16 @@ namespace TerrariaHbM.Content.NPCs
 
 			// NPC.friendly = false; // This is Bill Cipher, he is not friendly.
 
-			NPC.friendly = true; // Just kidding, he is friendly. He is a nice guy. For now.
+			NPC.friendly = true; // Just kidding, he is friendly. He is a nice guy. For NOW.
 			NPC.width = 18;
 			NPC.height = 40;
 			NPC.aiStyle = 7;
 			NPC.damage = 1000;
 			NPC.defense = 500;
 			NPC.lifeMax = 1000000;
-			// NPC.defense = 5;
-			// NPC.lifeMax = 10;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.knockBackResist = 4f;
+			NPC.knockBackResist = 1f;
 			// NPC.homeless = true; // This NPC does not require a house
 
 			AnimationType = NPCID.Guide; // This NPC will copy the Guide's animation
@@ -336,27 +334,26 @@ namespace TerrariaHbM.Content.NPCs
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
-			damage = 1000;
-			knockback = 8f;
+			damage = 500;
+			knockback = 2f;
 		}
 
 		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
 		{
-			cooldown = 20;
-			randExtraCooldown = 10;
+			cooldown = 360;
+			randExtraCooldown = 120;
 		}
 
 		public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
 		{
-			// projType = ProjectileID.DeathLaser;
-			projType = ModContent.ProjectileType<DeadlyLaser>();
+			projType = ModContent.ProjectileType<DeadlyLaserFriendly>();
 			attackDelay = 1;
 		}
 
 		public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
 		{
-			multiplier = 12f;
-			randomOffset = 2f;
+			multiplier = 1f;
+			randomOffset = 0f;
 			// SparklingBall is not affected by gravity, so gravityCorrection is left alone.
 		}
 

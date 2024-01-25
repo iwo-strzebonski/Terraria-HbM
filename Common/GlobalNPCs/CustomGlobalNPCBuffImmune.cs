@@ -13,7 +13,7 @@ namespace TerrariaHbM.Common.GlobalNPCs
 	// Adjusting NPC.buffImmune[] during AI or SetDefaults methods is possible, but be aware that debuff inheritance will not apply to manual changes.
 	// For example: While boss is spinning, set NPC.buffImmune[OnFire] = true.
 	// Using the NPC.BecomeImmuneTo and NPC.ClearImmuneToBuffs methods instead of adjusting NPC.buffImmune[] directly will allow debuff inheritance. MinionBossBody showcases this approach.
-	public class BuffImmuneGlobalNPC : GlobalNPC
+	public class CustomGlobalNPCBuffImmune : GlobalNPC
 	{
 		public override void SetStaticDefaults()
 		{

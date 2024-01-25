@@ -17,6 +17,8 @@ Mods: {
 			SparklingBall.DisplayName: Sparkling Ball
 			ActiveSoundShowcaseProjectile.DisplayName: Active Sound Showcase Projectile
 			DeadlyLaser.DisplayName: Deadly Laser
+			DeadlyLaserFriendly.DisplayName: Deadly Laser Friendly
+			DeadlyLaserHostile.DisplayName: Deadly Laser Hostile
 		}
 
 		Prefixes: {
@@ -703,5 +705,17 @@ Mods: {
 		}
 
 		DropConditions.JourneyMode: Mods.TerrariaHbM.DropConditions.JourneyMode
+
+		Buffs: {
+			MindMelt: {
+				DisplayName: Mind Melt
+				Description: Mods.TerrariaHbM.Buffs.MindMelt.Description
+			}
+
+			MindMeltDebuff: {
+				DisplayName: Mind Melt Debuff
+				Description: Mods.TerrariaHbM.Buffs.MindMeltDebuff.Description
+			}
+		}
 	}
 }

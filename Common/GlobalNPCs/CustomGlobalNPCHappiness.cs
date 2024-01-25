@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace TerrariaHbM.Common.GlobalNPCs
 {
-	public class ExampleNPCHappiness : GlobalNPC
+	public class CustomGlobalNPCHappiness : GlobalNPC
 	{
 		public override void SetStaticDefaults()
 		{

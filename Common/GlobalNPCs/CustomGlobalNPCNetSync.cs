@@ -8,7 +8,7 @@ using Terraria.ModLoader.IO;
 namespace TerrariaHbM.Common.GlobalNPCs
 {
 	// Here is a class dedicated to showcasing Send/ReceiveExtraAI()
-	public class SuspiciousYellowTriangleNetSync : GlobalNPC
+	public class CustomGlobalNPCNetSync : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
 		private bool differentBehavior;

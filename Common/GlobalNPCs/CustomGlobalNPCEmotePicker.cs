@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 namespace TerrariaHbM.Common.GlobalNPCs
 {
 	// This is where we add our regular emotes for all NPCs
-	public class EmotePickerGlobalNPC : GlobalNPC
+	public class CustomGlobalNPCEmotePicker : GlobalNPC
 	{
 		public override int? PickEmote(NPC npc, Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
 		{

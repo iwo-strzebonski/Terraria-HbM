@@ -20,6 +20,7 @@ Mods: {
 			DeadlyLaserFriendly.DisplayName: Deadly Laser
 			DeadlyLaserHostile.DisplayName: Deadly Laser
 			BillMinionLaser.DisplayName: Bill Minion Laser
+			FakeZhukovsProjectile.DisplayName: Fake Zhukovs Projectile
 		}
 
 		Prefixes: {
@@ -58,12 +59,7 @@ Mods: {
 				DisplayName: Suspicious Yellow Triangle
 			}
 
-			BillCipherBoss.DisplayName: A Two-Dimensional Angry Triangle
-			BillCipherBossMinion.DisplayName: Bill Cipher's Minion
-
-			Yosei: {
-				DisplayName: Yosei
-
+			SiergiejZhukov: {
 				TownNPCMood: {
 					Content: I am content.
 					NoHome: I hate not having a home.
@@ -80,7 +76,75 @@ Mods: {
 					LikeNPC_Princess: I like {NPCName}.
 					Princess_LovesNPC: I like {NPCName}.
 				}
+
+				DisplayName: Colonel of the Federation of Sol-3
 			}
+
+			ChariotDuNord: {
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LikeBiome: I like {BiomeName}.
+					DislikeBiome: I dislike {BiomeName}.
+					LoveNPC: I love {NPCName}.
+					LikeNPC: I like {NPCName}.
+					DislikeNPC: I dislike {NPCName}.
+					HateNPC: I hate {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+
+				DisplayName: Absentminded Witch
+			}
+
+			DianaKoniecpolska: {
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LikeBiome: I like {BiomeName}.
+					DislikeBiome: I dislike {BiomeName}.
+					LoveNPC: I love {NPCName}.
+					LikeNPC: I like {NPCName}.
+					DislikeNPC: I dislike {NPCName}.
+					HateNPC: I hate {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+
+				DisplayName: Abyssal Artificer
+			}
+
+			YoseiKamisato: {
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LikeBiome: I like {BiomeName}.
+					DislikeBiome: I dislike {BiomeName}.
+					LoveNPC: I love {NPCName}.
+					LikeNPC: I like {NPCName}.
+					DislikeNPC: I dislike {NPCName}.
+					HateNPC: I hate {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+
+				DisplayName: Kamisato Yosei
+			}
+
+			BillCipherBoss.DisplayName: A Two-Dimensional Mad Triangle of Weirdness
+			BillCipherBossMinion.DisplayName: Bill Cipher's Minion
 		}
 
 		Items: {

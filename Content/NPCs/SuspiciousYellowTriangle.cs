@@ -174,7 +174,7 @@ namespace TerrariaHbM.Content.NPCs
 			string chosenChat = chat; // chat is implicitly cast to a string. This is where the random choice is made.
 
 			// Here is some additional logic based on the chosen chat line. In this case, we want to display an item in the corner for StandardDialogue4.
-			if (chosenChat == Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.StandardDialogue4"))
+			if (chosenChat == Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.StandardDialogue4"))
 			{
 				// Main.npcChatCornerItem shows a single item in the corner, like the Angler Quest chat.
 				Main.npcChatCornerItem = ModContent.ItemType<ExampleItem>();
@@ -185,7 +185,7 @@ namespace TerrariaHbM.Content.NPCs
 
 		public override void OnKill()
 		{
-			Main.NewText("Bill Cipher: [c/FFFF00:I. Don't. Like. People. Who. Break. Deals.]");
+			Main.NewText("<Bill Cipher> [c/FFFF00:I. Don't. Like. People. Who. Break. Deals.]");
 
 			base.OnKill();
 		}
@@ -193,17 +193,17 @@ namespace TerrariaHbM.Content.NPCs
 		private void AddBaseDialogues(ref WeightedRandom<string> chat)
 		{
 			// These are things that the NPC has a chance of telling you when you talk to it.
-			chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.StandardDialogue1"));
-			chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.StandardDialogue2"));
-			chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.StandardDialogue3"));
-			chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.StandardDialogue4"));
-			chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.CommonDialogue"), 5.0);
-			chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.RareDialogue"), 0.1);
+			chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.StandardDialogue1"));
+			chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.StandardDialogue2"));
+			chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.StandardDialogue3"));
+			chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.StandardDialogue4"));
+			chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.CommonDialogue"), 5.0);
+			chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.RareDialogue"), 0.1);
 
 			if (NumberOfTimesTalkedTo >= 10)
 			{
 				//This counter is linked to a single instance of the NPC, so if SuspiciousYellowTriangle is killed, the counter will reset.
-				chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.TalkALot"));
+				chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.TalkALot"));
 			}
 		}
 
@@ -213,7 +213,7 @@ namespace TerrariaHbM.Content.NPCs
 			int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
 			if (partyGirl >= 0 && Main.rand.NextBool(4))
 			{
-				chat.Add(Language.GetTextValue("Mods.TerrariaHbM.Dialogue.SuspiciousYellowTriangle.PartyGirlDialogue", Main.npc[partyGirl].GivenName));
+				chat.Add(Language.GetTextValue($"Mods.TerrariaHbM.Dialogue.{Name}.PartyGirlDialogue", Main.npc[partyGirl].GivenName));
 			}
 		}
 

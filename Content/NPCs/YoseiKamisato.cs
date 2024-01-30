@@ -19,14 +19,15 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using TerrariaHbM.Content.Buffs;
+using System.Linq;
 
 namespace TerrariaHbM.Content.NPCs
 {
 	// [AutoloadHead] and NPC.townNPC are extremely important and absolutely both necessary for any Town NPC to work at all.
 	[AutoloadHead]
-	public class Yosei : ModNPC
+	public class YoseiKamisato : ModNPC
 	{
-		public const string ShopName = "Yosei minor trades";
+		public const string ShopName = "Yosei's Minor Trades";
 		public int NumberOfTimesTalkedTo = 0;
 
 		private static int ShimmerHeadIndex;
@@ -58,10 +59,10 @@ namespace TerrariaHbM.Content.NPCs
 
 			NPCID.Sets.ExtraFramesCount[Type] = 9; // Generally for Town NPCs, but this is how the NPC does extra things such as sitting in a chair and talking to other NPCs. This is the remaining frames after the walking frames.
 			NPCID.Sets.AttackFrameCount[Type] = 4; // The amount of frames in the attacking animation.
-			NPCID.Sets.DangerDetectRange[Type] = 700; // The amount of pixels away from the center of the NPC that it tries to attack enemies.
+			NPCID.Sets.DangerDetectRange[Type] = 600; // The amount of pixels away from the center of the NPC that it tries to attack enemies.
 			NPCID.Sets.AttackType[Type] = 2; // The type of attack the Town NPC performs. 0 = throwing, 1 = shooting, 2 = magic, 3 = melee
-			NPCID.Sets.AttackTime[Type] = 90; // The amount of time it takes for the NPC's attack animation to be over once it starts.
-			NPCID.Sets.AttackAverageChance[Type] = 20; // The denominator for the chance for a Town NPC to attack. Lower numbers make the Town NPC appear more aggressive.
+			NPCID.Sets.AttackTime[Type] = 40; // The amount of time it takes for the NPC's attack animation to be over once it starts.
+			NPCID.Sets.AttackAverageChance[Type] = 30; // The denominator for the chance for a Town NPC to attack. Lower numbers make the Town NPC appear more aggressive.
 			NPCID.Sets.HatOffsetY[Type] = 4; // For when a party is active, the party hat spawns at a Y offset.
 			NPCID.Sets.ShimmerTownTransform[NPC.type] = false; // This set says that the Town NPC has a Shimmered form. Otherwise, the Town NPC will become transparent when touching Shimmer like other enemies.
 
@@ -97,15 +98,14 @@ namespace TerrariaHbM.Content.NPCs
 			// This creates a "profile" for SuspiciousYellowTriangle, which allows for different textures during a party and/or while the NPC is shimmered.
 			NPCProfile = new Profiles.StackedNPCProfile(
 				new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture)
-				//new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex, Texture + "_Shimmer_Party")
+			//new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex, Texture + "_Shimmer_Party")
 			);
-            
+
 		}
 
 		public override void SetDefaults()
 		{
-			NPC.townNPC = true; // Sets NPC to be a Town NPC
-
+			NPC.townNPC = true;
 			NPC.friendly = true;
 			NPC.width = 18;
 			NPC.height = 40;
@@ -116,11 +116,8 @@ namespace TerrariaHbM.Content.NPCs
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.knockBackResist = 0.8f;
-			// NPC.homeless = true; // This NPC does not require a house
 
 			AnimationType = NPCID.Guide; // This NPC will copy the Guide's animation
-
-			// AnimationType = NPCID.ChaosElemental; // This NPC will copy the Chaos Elemental's animation
 		}
 
 		public override bool CanTownNPCSpawn(int numTownNPCs)
@@ -134,12 +131,10 @@ namespace TerrariaHbM.Content.NPCs
 					continue;
 				}
 
-				return true;
-
-				// Player has to have either an ExampleItem or an ExampleBlock in order for the NPC to spawn
-				// if (player.inventory.Any(item => item.type == ModContent.ItemType<ExampleItem>() || item.type == ModContent.ItemType<Items.Placeable.ExampleBlock>())) {
-				// 	return true;
-				// }
+				if (player.inventory.Any(item => item.type == ItemID.WaterBolt))
+				{
+					return true;
+				}
 			}
 
 			return false;
@@ -155,7 +150,7 @@ namespace TerrariaHbM.Content.NPCs
 		{
 			return new List<string>()
 			{
-				"Yosei"
+				"Kamisato Yosei"
 			};
 		}
 
@@ -214,12 +209,17 @@ namespace TerrariaHbM.Content.NPCs
 			}
 		}
 
+		public override void SetChatButtons(ref string button, ref string button2)
+		{ // What the chat buttons are when you open up the chat UI
+			button = Language.GetTextValue("LegacyInterface.28");
+		}
+
 		public override void OnChatButtonClicked(bool firstButton, ref string shop)
 		{
 			if (firstButton)
 			{
 				// We want 3 different functionalities for chat buttons, so we use HasItem to change button 1 between a shop and upgrade action.
-                
+
 				shop = ShopName; // Name of the shop tab we want to open.
 			}
 		}
@@ -309,14 +309,14 @@ namespace TerrariaHbM.Content.NPCs
 
 		public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
 		{
-			projType = ModContent.ProjectileType<DeadlyLaserFriendly>();
+			projType = ProjectileID.WaterBolt;
 			attackDelay = 1;
 		}
 
 		public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
 		{
-			multiplier = 1f;
-			randomOffset = 0f;
+			multiplier = 16f;
+			randomOffset = 0.5f;
 			// SparklingBall is not affected by gravity, so gravityCorrection is left alone.
 		}
 

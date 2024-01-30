@@ -148,7 +148,7 @@ namespace TerrariaHbM.Content.Bosses.BillCipher
 		{
 			NPC.width = 110;
 			NPC.height = 110;
-			NPC.damage = 1000000;
+			NPC.damage = 1000;
 			NPC.defense = 100;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
@@ -161,7 +161,7 @@ namespace TerrariaHbM.Content.Bosses.BillCipher
 			NPC.npcSlots = 10f; // Take up open spawn slots, preventing random NPCs from spawning during the fight
 
 			// NPC.lifeMax = 1000000;
-			NPC.lifeMax = 1000;
+			NPC.lifeMax = 1000000;
 
 			if (Main.expertMode)
 			{

@@ -21,9 +21,9 @@ namespace TerrariaHbM.Content.Projectiles
 
 
     public const int TotalFadeoutTime = 25;
-    public const int TimeLeft = 180;
     public const float MaximumLength = 3000f;
-    public const float LaserSize = 0.875f;
+    public virtual int TimeLeft => 180;
+    public virtual float LaserSize => 1f;
 
 
     public override void SetDefaults()

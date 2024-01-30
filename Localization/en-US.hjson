@@ -17,8 +17,9 @@ Mods: {
 			SparklingBall.DisplayName: Sparkling Ball
 			ActiveSoundShowcaseProjectile.DisplayName: Active Sound Showcase Projectile
 			DeadlyLaser.DisplayName: Deadly Laser
-			DeadlyLaserFriendly.DisplayName: Deadly Laser Friendly
-			DeadlyLaserHostile.DisplayName: Deadly Laser Hostile
+			DeadlyLaserFriendly.DisplayName: Deadly Laser
+			DeadlyLaserHostile.DisplayName: Deadly Laser
+			BillMinionLaser.DisplayName: Bill Minion Laser
 		}
 
 		Prefixes: {
@@ -56,6 +57,9 @@ Mods: {
 
 				DisplayName: Suspicious Yellow Triangle
 			}
+
+			BillCipherBoss.DisplayName: A Two-Dimensional Angry Triangle
+			BillCipherBossMinion.DisplayName: Bill Cipher's Minion
 		}
 
 		Items: {

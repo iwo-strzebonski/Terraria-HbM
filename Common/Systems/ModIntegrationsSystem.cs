@@ -75,7 +75,7 @@ namespace TerrariaHbM.Common.Systems
 			// By default, it draws the first frame of the boss, omit if you don't need custom drawing
 			// But we want to draw the bestiary texture instead, so we create the code for that to draw centered on the intended location
 			var customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
-				Texture2D texture = ModContent.Request<Texture2D>("TerrariaHbM/Assets/Textures/Bestiary/MinionBoss_Preview").Value;
+				Texture2D texture = ModContent.Request<Texture2D>("TerrariaHbM/Assets/Textures/Bestiary/BillCipherBoss_Preview").Value;
 				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
 				sb.Draw(texture, centered, color);
 			};

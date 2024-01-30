@@ -18,6 +18,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
+using TerrariaHbM.Content.Buffs;
 
 namespace TerrariaHbM.Content.NPCs
 {
@@ -25,7 +26,7 @@ namespace TerrariaHbM.Content.NPCs
 	[AutoloadHead]
 	public class SuspiciousYellowTriangle : ModNPC
 	{
-		public const string ShopName = "Bill Cipher's Dubious Trades";
+		public const string ShopName = "Bill Cipher's Suspicious Trades";
 		public int NumberOfTimesTalkedTo = 0;
 
 		private static int ShimmerHeadIndex;
@@ -65,6 +66,8 @@ namespace TerrariaHbM.Content.NPCs
 			NPCID.Sets.ShimmerTownTransform[NPC.type] = true; // This set says that the Town NPC has a Shimmered form. Otherwise, the Town NPC will become transparent when touching Shimmer like other enemies.
 
 			NPCID.Sets.ShimmerTownTransform[Type] = true; // Allows for this NPC to have a different texture after touching the Shimmer liquid.
+
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<MindMeltDebuff>()] = true;
 
 			// Connects this NPC with a custom emote.
 			// This makes it when the NPC is in the world, other NPCs will "talk about him".
@@ -110,12 +113,12 @@ namespace TerrariaHbM.Content.NPCs
 			NPC.width = 18;
 			NPC.height = 40;
 			NPC.aiStyle = 7;
-			NPC.damage = 1000;
-			NPC.defense = 500;
+			NPC.damage = 500;
+			NPC.defense = 150;
 			NPC.lifeMax = 1000000;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.knockBackResist = 1f;
+			NPC.knockBackResist = 0.5f;
 			// NPC.homeless = true; // This NPC does not require a house
 
 			AnimationType = NPCID.Guide; // This NPC will copy the Guide's animation
@@ -128,6 +131,7 @@ namespace TerrariaHbM.Content.NPCs
 			for (int k = 0; k < Main.maxPlayers; k++)
 			{
 				Player player = Main.player[k];
+
 				if (!player.active)
 				{
 					continue;
@@ -334,7 +338,7 @@ namespace TerrariaHbM.Content.NPCs
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
-			damage = 500;
+			damage = NPC.damage / 2;
 			knockback = 2f;
 		}
 

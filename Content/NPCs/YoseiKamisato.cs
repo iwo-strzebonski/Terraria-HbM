@@ -317,7 +317,6 @@ namespace TerrariaHbM.Content.NPCs
 		{
 			multiplier = 16f;
 			randomOffset = 0.5f;
-			// SparklingBall is not affected by gravity, so gravityCorrection is left alone.
 		}
 
 		// Let the NPC "talk about" minion boss

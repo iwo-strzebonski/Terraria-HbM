@@ -14,13 +14,12 @@ Mods: {
 		}
 
 		Projectiles: {
-			SparklingBall.DisplayName: Sparkling Ball
 			ActiveSoundShowcaseProjectile.DisplayName: Active Sound Showcase Projectile
 			DeadlyLaser.DisplayName: Deadly Laser
 			DeadlyLaserFriendly.DisplayName: Deadly Laser
 			DeadlyLaserHostile.DisplayName: Deadly Laser
 			BillMinionLaser.DisplayName: Bill Minion Laser
-			FakeZhukovsProjectile.DisplayName: Fake Zhukovs Projectile
+			FakeZhukovsProjectile.DisplayName: Musket Ball
 		}
 
 		Prefixes: {
@@ -279,26 +278,9 @@ Mods: {
 			}
 		}
 
-		Biomes: {
-			ExampleUndergroundBiome: {
-				TownNPCDialogueName: the Example Underground Biome
-				DisplayName: Example Underground Biome
-			}
-
-			ExampleSurfaceBiome: {
-				TownNPCDialogueName: the Example Surface Biome
-				DisplayName: Example Surface Biome
-			}
-		}
-
 		Emotes: {
-			ExampleTravellingMerchantEmote.Command: exampletravellingmerchantemote
-			ExamplePickaxeEmote.Command: examplepickaxeemote
-			ExampleItemEmote.Command: exampleitememote
-			ExampleBoneMerchantEmote.Command: examplebonemerchantemote
-			ExampleBiomeEmote.Command: examplebiomeemote
-			SuspiciousYellowTriangleEmote.Command: SuspiciousYellowTriangleemote
-			SuspiciosYellowTriangleEmote.Command: SuspiciosYellowTriangleemote
+			SuspiciousYellowTriangleEmote.Command: suspiciousyellowtriangleemote
+			SuspiciosYellowTriangleEmote.Command: suspiciosyellowtriangleemote
 		}
 
 		Keybinds.RandomBuff.DisplayName: Random Buff
@@ -793,17 +775,12 @@ Mods: {
 			}
 		}
 
-		DropConditions.JourneyMode: Mods.TerrariaHbM.DropConditions.JourneyMode
+		DropConditions.JourneyMode: Journey Mode required
 
 		Buffs: {
-			MindMelt: {
-				DisplayName: Mind Melt
-				Description: Mods.TerrariaHbM.Buffs.MindMelt.Description
-			}
-
 			MindMeltDebuff: {
 				DisplayName: Mind Melt Debuff
-				Description: Mods.TerrariaHbM.Buffs.MindMeltDebuff.Description
+				Description: Your brain is melting...
 			}
 		}
 	}

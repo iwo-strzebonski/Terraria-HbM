@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -43,7 +42,11 @@ namespace TerrariaHbM.Content.Projectiles
 
         velocity = velocity.RotatedByRandom(MathHelper.ToRadians(Main.rand.NextFloat(-30, 30)));
 
-        Projectile.NewProjectile(source, position, velocity, projectiles[i], Projectile.damage, Projectile.knockBack, Projectile.owner);
+        // Spawn the Projectile. As the shotgun-like effect is created by a non-player owned Projectile, we have to verify the NetMode.
+        if (Main.netMode != NetmodeID.MultiplayerClient)
+        {
+          Projectile.NewProjectile(source, position, velocity, projectiles[i], Projectile.damage, Projectile.knockBack, Projectile.owner);
+        }
       }
     }
   }
